@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="script.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <script>
+            var ivan = new Student("Ivan", "Ivanov", 15, 3);
+            var gosho = new Student("Gosho", "Lydiq", 16, 4);
+            var ninka = new Student("Nina", "Shafrantiqta", 18, 11);
+            var boncho= new Student("Boncho", "Peralnqta", 13, 3);
+
+            var georgiev = new Teacher("George", "Georgiev", 25, "Computer Science");
+
+            var html = new SchoolClass("HTML", 10, { ivan: ivan, gosho: gosho, ninka: ninka, boncho: boncho }, georgiev);
+
+            console.log(ivan.introduce());
+            console.log(ninka.introduce());
+            console.log(georgiev.introduce());
+        </script>
+    </body>
+</html>

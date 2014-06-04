@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Circle of divs</title>
+    </head>
+    <body>
+        <div id="wrapper"></div>
+    </body>
+    <script>
+        var NUMBER_OF_DIVS = 5;
+        var contentDiv = document.getElementById("wrapper");
+
+        function generateRandomDivs(count) {
+            for (var i = 0; i < count; i++) {
+                var div = document.createElement("div");
+
+                div.style.width = "100px";
+                div.style.height = "100px";
+                div.style.position = "relative";
+
+                //Random color
+                div.style.backgroundColor =
+					"rgb(" + getRandomInt(1, 255) +
+						"," + getRandomInt(1, 255) +
+						"," + getRandomInt(1, 255) +
+						")";
+
+                //Random font color
+                div.style.color =
+					"rgb(" + getRandomInt(1, 255) +
+						"," + getRandomInt(1, 255) +
+						"," + getRandomInt(1, 255) +
+						")";
+
+                //Add strong text
+                var text = document.createElement("strong");
+                text.appendChild(document.createTextNode("div"));
+                div.appendChild(text);
+
+               
+                //Add class rotate
+                div.className = "rotate";
+
+                //Add generated div
+                contentDiv.appendChild(div);
+            }
+
+            //Generating random integer in range [min; max]
+            function getRandomInt(min, max) {
+                var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+                return randomNumber;
+            }
+        }
+
+        generateRandomDivs(NUMBER_OF_DIVS);
+
+        //Rotating divs
+        var allDivs = document.getElementsByClassName("rotate");
+        var angle = 0;
+        function rotateDiv(divs) {
+            var increase = Math.PI * 2 / divs.length;
+            var x = 0, y = 0;
+            angle += 1;
+            for (i = 0; i < divs.length; i++) {
+                div = divs[i];
+                x = 200 * Math.cos(angle) + screen.width / 2;
+                y = 200 * Math.sin(angle) + screen.height / 2;
+                div.style.position = 'absolute';
+                div.style.left = x + 'px';
+                div.style.top = y + 'px';
+                var rot = 90 + (i * (360 / divs.length));
+                div.style['-moz-transform'] = "rotate(" + rot + "deg)";
+                div.style.MozTransform = "rotate(" + rot + "deg)";
+                div.style['-webkit-transform'] = "rotate(" + rot + "deg)";
+                div.style['-o-transform'] = "rotate(" + rot + "deg)";
+                div.style['-ms-transform'] = "rotate(" + rot + "deg)";
+                angle += increase;
+            }
+        }
+        setInterval(function () {
+            rotateDiv(allDivs)
+        }, 100);
+    </script>
+</html>

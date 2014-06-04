@@ -1,0 +1,43 @@
+﻿<html>
+    <head>
+        <title>Query Selector</title>
+        <script>
+            //check is query selector supported
+            if (!document.querySelector || !document.querySelectorAll) {
+                document.querySelectorAll = function (selector) {
+                    if (selector[0] === '#') {
+                        return document.getElementById(selector.substr(1));
+                    }
+                    else if (selector[0] === '.') {
+                        return document.getElementsByClassName(selector.substr(1));
+                    }
+                    else {
+                        return document.getElementsByTagName(selector);
+                    }
+                }
+    
+                document.querySelector = function (selector) {
+                    return document.getElementById(selector.substr(1));
+                }
+            }
+
+          
+        </script>
+    </head>
+    <body>
+        <div id="theDiv">blablbalbalba</div>
+        <div>lqllqlqlqlql</div>
+        <div>more lqlqlqlqlllqqlqqlq</div>
+    </body>
+    <script>
+        //test
+        var allDivs = document.querySelectorAll("div");
+
+        for (var i = 0; i < allDivs.length; i++) {
+            allDivs[i].style.backgroundColor = "blue";
+        }
+
+        var firstDiv = document.querySelector("#theDiv");
+        firstDiv.style.backgroundColor = "green";
+    </script>
+</html>

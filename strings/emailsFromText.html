@@ -1,0 +1,26 @@
+<html>
+    <head>
+    </head>
+    <body>
+    </body>
+    <script>
+		function getEmailsFromText(text) {
+            var mailPattern = /([\w_]+)\@(\w+)\.([\w\.]+\w)/g;
+            var matches = [];
+            var match;
+ 
+            while (match = mailPattern.exec(text))
+                matches.push(match);
+ 
+            return matches;
+        }
+		var text="lqlqllq gardax@lala.com lqlqlql neshtosi@lala.bg dmamdl;samdl azsumivan@ivan.net";
+		var mails=getEmailsFromText(text);
+		for (var i in mails)
+		{
+			document.write(mails[i][0]+"<br/>");
+		}
+	</script>
+	</body>
+	</head>
+</html>

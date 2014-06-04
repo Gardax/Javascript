@@ -1,0 +1,237 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Tree view</title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <style>
+        .childrenInvisible ul {
+            display:none;        
+        }
+        .childrenVisible ul {
+            display:block;        
+        }
+         .subChildrenInvisible ul {
+            display:none;        
+        }
+        .subChildrenVisible ul {
+            display:block;        
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            Item
+            <ul>
+                <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li> <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Item
+            <ul>
+                <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li> <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Item
+            <ul>
+                <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li> <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Item
+            <ul>
+                <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li> <li>
+                    Sub Item
+                    <ul>
+                        <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                         <li>
+                            Sub sub Item
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+    <script>
+        window.onload = function () {
+            $("li").addClass('childrenInvisible');
+            $("li ul li").addClass('subChildrenInvisible');
+			
+            //Add or  remove class for children items
+            $("li").click(function (e) {
+                e.stopPropagation();
+                if ($(this).hasClass('childrenVisible')) {
+                    $(this).removeClass('childrenVisible').addClass('childrenInvisible');
+                }
+                else {
+                    $(this).removeClass('childrenInvisible').addClass('childrenVisible');
+                }
+            });
+            
+            //Add or remove class for children of sub items
+            $("li ul li").click(function (e) {
+                e.stopPropagation();
+                if ($(this).hasClass('subChildrenVisible')) {
+                    $(this).removeClass('subChildrenVisible').addClass('subChildrenInvisible');
+                }
+                else {
+                    $(this).removeClass('subChildrenInvisible').addClass('subChildrenVisible');
+                }
+            });
+        }
+    </script>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+    </head>
+    <body>
+
+    </body>
+    <script>
+	    //change space with &nbsp;
+		function change (text)
+		{
+			var newText="";
+			for (var i=0;i<text.length;i++)
+			{
+				if (text[i]==" ")
+				{
+					newText+="&nbsp;";
+				}
+				else
+				{
+					newText+=text[i];
+				}
+			}
+			return newText;
+		}
+		//test
+		var text="lqlql lqlqllqlq ql ldlwqqllql qllqllqql qlqllqllq lqlql";
+		document.write(change(text));
+		
+	</script>
+</html>

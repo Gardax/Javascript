@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tree view</title>
+    <script type="text/javascript" src="jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+       $(document).ready(function() {
+            $('.menu').treeView();
+      });
+ </script>
+ <style>
+		.menu {
+		margin: 50px;
+		padding: 0px;
+		width: 500px;
+	}
+	
+	.menu li {
+		padding-left: 20px;
+		list-style-type: none;
+	}
+	a{
+		text-decoration: none;
+		color: black;
+	}
+	.menu li > ul {
+		display: none;
+	}
+ </style>
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+        <li>
+            Parent Menu
+            <ul>
+                <li><a href="#">Sub item</a></li>
+                <li><a href="#">Sub item</a></li>
+                <li><a href="#">Sub item</a></li>
+            </ul>
+        </li>
+        <li>
+            Parent Menu
+            <ul>
+                <li><a href="#">Accessify</a></li>
+                <li>
+                    SubMenu
+                    <ul>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                    </ul>
+                </li>
+                <li>
+                    SubMenu
+                    <ul>
+                        <li><a href="#">Link 1</a></li>
+                        <li>
+                            Sub Sub Menu
+                            <ul>
+                                <li><a href="#">Sub Sub item</a></li>
+                                <li><a href="#">Sub Sub item</a></li>
+                                <li><a href="#">Sub Sub item</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

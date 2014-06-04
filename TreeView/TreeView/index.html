@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="scripts/TreeView.js"></script>
+    <style>
+        #accordion ul
+        {
+            list-style-type:none;
+        }
+            #accordion ul li a
+            {
+                color: black;
+                text-decoration:none;
+            }
+            #accordion ul li:hover> a
+            {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+    <div id="accordion">
+        <script>
+            var accordion = controls.getAccordion("#accordion");
+            var webItem=accordion.add("Web");
+            var htmlItem = webItem.add("HTML");
+            htmlItem.add("4.1");
+            htmlItem.add("5");
+            var mobileItem = accordion.add("Mobile");
+            mobileItem.add("android");
+            mobileItem.add("windows phone");
+            accordion.add("Desktop");
+            accordion.add("Web");
+
+            accordion.render();
+            accordion.add("gosho");
+            accordion.render();
+        </script>
+    </div>
+</body>
+</html>

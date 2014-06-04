@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>hasProperty</title>
+</head>
+<body>
+
+</body>
+    <script>
+        function hasProperty(obj, prpt) {
+            for (var i in obj) {
+                if (i == prpt) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        var arr = {
+            length: 10,
+            type: "int",
+            neshtoSi: "blabla"
+        }
+
+        var hasPropertyOf = hasProperty(arr, "length");
+        document.write(hasPropertyOf);
+    </script>
+</html>

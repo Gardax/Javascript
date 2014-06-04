@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Drink game</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <style>
+        #gameField {
+            display:none;        
+        }
+        #saveScore {
+            display: none;        
+        }
+        #trash {
+            position:relative;
+            top: -100px;
+            left: 200px;
+        }
+        #container {
+            width:100px;
+            height:200px;       
+        }
+        #drunkPic {
+            display:none;
+        }
+    </style>
+    <button id="startBtn" onclick="start()">Start</button>
+    <div id="gameField">
+        <div id="container"  ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="closed.jpg"  id="trashBin" ondragover="changeImage('opened')" onmouseout="changeImage('closed')" width="100px" height="200px" />
+            <img src="drunk.jpg" id="drunkPic"/>
+        </div>
+        <div id="trash">
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)" id="1"  widht="30px" height="100px"/>
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)"  id="2" widht="30px" height="100px"/>
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)"  id="3" widht="30px" height="100px"/>
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)" id="4" widht="30px" height="100px"/>
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)" id="5" widht="30px" height="100px"/>
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)" id="6" widht="30px" height="100px"/>
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)" id="7" widht="30px" height="100px"/>
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)" id="8" widht="30px" height="100px"/>
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)" id="9" widht="30px" height="100px"/>
+            <img src="bottle.jpg" draggable="true" ondragstart="drag(event)" id="10" widht="30px" height="100px"/>
+        </div>
+    </div>
+    <div id="saveScore">
+        Nickname: <input type="text" id="name"/>
+        <button onclick="SaveScore()">Save</button>
+    </div>
+    <div id="topFive" onload="LoadTopFive()">
+
+    </div>
+</body>
+</html>

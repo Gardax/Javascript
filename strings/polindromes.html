@@ -1,0 +1,28 @@
+<html>
+    <head>
+    </head>
+    <body>
+    </body>
+    <script>
+		function findPolindromes(text) {
+	        var str="";
+	        text = text.toLowerCase();
+	        text = text.replace(".", " ").replace("!", " ").replace("?", " ").replace(",", " ");
+	        var wordsArr = text.split(" ");
+	        for (var i = 0; i < wordsArr.length; i++) {
+				str="";
+	            for (var j = wordsArr[i].length-1; j >=0 ; j--) {
+	                str+=wordsArr[i][j];
+	            }
+	            if (str.toString()==wordsArr[i]) {
+	                document.write(wordsArr[i]+" ");
+	            }
+	        }
+	    }
+		//test
+		var text="adfsa ABBA, lamal lqlqlqq, iha exe";
+		findPolindromes(text);
+	</script>
+	</body>
+	</head>
+</html>

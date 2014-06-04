@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="wrapper">
+    </div>
+</body>
+    <script>
+        var tags = ["cms", "javascript", "js", "ASP.NET MVC", ".net", ".net", "css", "wordpress", "xaml", "js", "http",
+            "web", "asp.net", "asp.net MVC", "ASP.NET MVC", "wp", "javascript", "js", "cms", "html",
+            "javascript", "http", "http", "CMS"];
+
+        var tagCloud = generateTagCloud(tags, 17, 42);
+       
+        function generateTagCloud(tags, minFontSize, maxFontSize) {
+            var contentDiv = document.getElementById("wrapper");
+
+            //calculate how much to increase font size of each occuranse
+            var step = (maxFontSize - minFontSize) / tags.length + 4;
+            for (var i = 0; i < tags.length; i++) {
+                tags[i]=tags[i].toLowerCase();
+            }
+
+            for (var i = 0; i < tags.length; i++) {
+                if (document.getElementById(tags[i]) == null) {
+                    var span = document.createElement("span");
+                    span.id = tags[i];
+                    span.innerText = tags[i];
+                    span.style.fontSize = minFontSize+"px";
+                    span.style.marginLeft = "10px";
+                    span.className = minFontSize;
+                    contentDiv.appendChild(span);
+                }
+                else {
+                    var fontSize = parseInt(document.getElementById(tags[i]).className);
+                    document.getElementById(tags[i]).style.fontSize = fontSize + parseInt(step) + "px";
+                    document.getElementById(tags[i]).className = fontSize + parseInt(step);
+                }
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,23 @@
+<html>
+    <head>
+    </head>
+    <body>
+
+    </body>
+    <script>
+	//function that parses url
+	   function parseURL(url)
+	   {
+			//regular expression
+			 var fragments = url.match("(.*)://(.*?)(/.*)");
+			 return { "Protokol": fragments[1], "Server": fragments[2], "Resource": fragments[3] };
+	   }
+	   //test
+	   var url="http://www.devbg.org/forum/index.php";
+	   var frags=parseURL(url);
+	   document.write ("Protokol: "+ frags['Protokol']+"<br/>");
+	   document.write ("Server: "+ frags['Server']+"<br/>");
+	   document.write ("Resource: "+ frags['Resource']+"<br/>");
+	   
+	</script>
+</html>

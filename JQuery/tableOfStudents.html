@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Table</title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<body>
+	</body>
+	<script>
+	var students = [{ firstname: "Petar", lastname: "Ivanov", grade: "3" },
+                { firstname: "Milena", lastname: "Grigorova", grade: "6" },
+                { firstname: "Gergana", lastname: "Borisova", grade: "12" },
+                { firstname: "Boyko", lastname: "Petrov", grade: "7" }];
+				
+	$(document).ready(function() {
+	 var studentsHTML =
+     "<table border='1'>"+
+         "<tr>"+
+             "<th>First Name</th><th>Second Name</th><th>Grade</th>"+
+         "</tr>";
+     for (var i = 0; i < students.length; i += 1) {
+         studentsHTML +=
+         "<tr>"+
+             "<td>" + students[i].firstname + "</td>" +
+             "<td>" + students[i].lastname + "</td>" +
+             "<td>" + students[i].grade + "</td>"
+         "</tr>";
+     }
+ 
+     $("body").html(studentsHTML);
+	});
+	</script>
+</html>

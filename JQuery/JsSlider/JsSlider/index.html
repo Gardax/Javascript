@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Slider</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+    <style>
+        #prev, #next
+        {
+            width: 60px;
+            border: 1px solid black;
+        }
+        content
+        {
+            border: 1px solid black;
+        }
+    </style>
+    <div id="wrapper">
+        <div id="prev">Previous</div>
+        <div id="content">
+            <div class="item">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+            <div class="item">
+                <img width="800px" src="powered-by-amd-1366x768.jpg" />
+            </div>
+            <div class="item">
+                Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text 
+                Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text 
+                Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text 
+                Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text 
+                Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text 
+                Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text 
+                Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text 
+                Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text 
+                Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text 
+            </div>
+        </div>
+        <div id="next">Next</div>
+    </div>
+</body>
+    <script>
+        var index = 0;
+
+        var sliderItems = $(".item");
+        function next() {
+            index++;
+            if (index >= sliderItems.length) {
+                index = 0;
+            }
+            sliderItems.hide();
+            var nextItem = $(sliderItems[index]);
+            nextItem.show();
+        }
+
+        function prev() {
+            index--;
+            if (index < 0) {
+                index = sliderItems.length - 1;
+            }
+            sliderItems.hide();
+            var nextItem = $(sliderItems[index]);
+            nextItem.show();
+        }
+
+        $("#next").click(function () {
+            next();
+        })
+
+        $("#prev").click(function () {
+            prev();
+        })
+
+        next();
+        var myTimer = setInterval(function () {
+            next();
+        }, 5000);
+    </script>
+</html>

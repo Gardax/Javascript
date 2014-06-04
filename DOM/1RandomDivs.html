@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Random divs</title>
+         
+    </head>
+    <body>
+        <div id="wrapper">
+        </div>
+    </body>
+    <script>
+        var contentDiv = document.getElementById("wrapper");
+        var countOfDivs = prompt('How many divs you want to generate?', '') | 0;
+        function generateRandomDivs(count) {
+            for (var i = 0; i < count; i++) {
+
+                var div = document.createElement("div");
+
+                //Random width and height
+                div.style.width = getRandomInt(20, 100) + "px";
+                div.style.height = getRandomInt(20, 100) + "px";
+
+                //Random color
+                div.style.backgroundColor =
+					"rgb(" + getRandomInt(1, 255) +
+						"," + getRandomInt(1, 255) +
+						"," + getRandomInt(1, 255) +
+						")";
+
+                //Random font color
+                div.style.color =
+					"rgb(" + getRandomInt(1, 255) +
+						"," + getRandomInt(1, 255) +
+						"," + getRandomInt(1, 255) +
+						")";
+
+                //Random possition
+                div.style.position = "absolute";
+                div.style.top = getRandomInt(1, 800);
+                div.style.left = getRandomInt(1, 800);
+
+                //Add strong text
+                var text = document.createElement("strong");
+                text.appendChild(document.createTextNode("div"));
+                div.appendChild(text);
+
+                div.style.borderStyle = "solid";
+                //Random border radius
+                div.style.borderRadius = getRandomInt(0, 25);
+                
+                //Random border color
+                div.style.borderColor =
+                   "rgb(" + getRandomInt(1, 255) +
+                       "," + getRandomInt(1, 255) +
+                       "," + getRandomInt(1, 255) +
+                       ")";
+
+                //Random border width
+                div.style.borderWidth = getRandomInt(1, 20) + "px";
+
+                //Add generated div
+                contentDiv.appendChild(div);
+            }
+        }
+
+        //Generating random integer in range [min; max]
+        function getRandomInt(min, max) {
+            var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            return randomNumber;
+        }
+        
+        generateRandomDivs(countOfDivs);
+    </script>
+</html>

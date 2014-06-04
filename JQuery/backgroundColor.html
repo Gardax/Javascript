@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>Table</title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<body>
+		Choose color: <input type="color" id="color-picker" />
+		<script>
+			function changeBGColor() {
+				$("body").css("background-color", $("#color-picker").val());
+			}
+ 
+			$("#color-picker").on("change", changeBGColor);
+		</script>
+	</body>
+</html>

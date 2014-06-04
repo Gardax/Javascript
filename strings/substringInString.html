@@ -1,0 +1,28 @@
+<html>
+    <head>
+    </head>
+    <body>
+
+    </body>
+    <script>
+	//counter function
+	function counter(d, s)
+        {
+            var index = s.indexOf(d);
+            var l = d.length;
+            s = s.substring(index + 1);
+            if (index == -1)
+                return 0;
+            else
+                return 1 + counter(d, s);
+        }
+		//test
+        var text = "We are living in an yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.";
+        var word = "in";
+        text = text.toLowerCase();
+        word = word.toLowerCase();
+        var count = counter(word, text);
+        document.write("The result is: "+count);
+        
+	 </script>
+</html>

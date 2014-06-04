@@ -1,0 +1,24 @@
+﻿
+<html>
+<head>
+    <title>Text area</title>
+</head>
+<body>
+    Font color: <input type="color" name="fontColor" onchange="setFontColor()" /><br>
+    Background color: <input type="color" name="backgroundColor" onchange="setBackgroundColor()" /><br>
+    <textarea>
+        I am text area!!!
+    </textarea>
+</body>
+      <script>
+
+          var textarea = document.getElementsByTagName('textarea')[0];
+          function setFontColor() {
+              return textarea.style.color = document.getElementsByName("fontColor")[0].value;
+
+          }
+          function setBackgroundColor() {
+              return textarea.style.backgroundColor = document.getElementsByName('backgroundColor')[0].value;
+          }
+    </script>
+</html>

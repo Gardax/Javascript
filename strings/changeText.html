@@ -1,0 +1,61 @@
+<html>
+    <head>
+    </head>
+    <body>
+
+    </body>
+    <script>
+        //make text upper case
+	    function doUpcase(text)
+	    {
+	        var index = text.indexOf("<upcase>");
+	        while (index>-1) {
+	            var insedeText = text.substring(index + 8, text.indexOf("</upcase>", index))
+	            var upperText = insedeText.toUpperCase();
+	            text = text.replace(insedeText, upperText);
+	            index = text.indexOf("<upcase>", index+1);
+	        }
+	        return text;
+	    }
+		//make text mixed case
+	    function doMixCase(text) {
+	        var index = text.indexOf("<mixcase>");
+	        while (index > -1) {
+	            var insedeText = text.substring(index + 9, text.indexOf("</mixcase>", index));
+	            var mixedText = new String(insedeText);
+	            for (var i = 0; i < mixedText.length ; i++) {
+					var rand=Math.random();
+	                if(rand>0.5)
+	                {
+	                    mixedText = mixedText.replace(mixedText[i],mixedText[i].toUpperCase())
+	                }
+	                else {
+	                    mixedText = mixedText.replace(mixedText[i], mixedText[i].toLowerCase())
+	                }
+	            }
+	            text = text.replace(insedeText, mixedText);
+	            index = text.indexOf("<mixcase>", index + 1);
+	        }
+	        return text;
+	    }
+		//make text lower case
+	    function doLowCase(text) {
+	        var index = text.indexOf("<lowcase>");
+	        while (index > -1) {
+	            var insedeText = text.substring(index + 9, text.indexOf("</lowcase>", index));
+	            var lowerText = insedeText.toLowerCase();
+	            text = text.replace(insedeText, lowerText);
+	            index = text.indexOf("<lowcase>", index + 1);
+	        }
+	        return text;
+	    }
+		//test
+	    var text = "We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>."
+            + "We <mixcase>don't</mixcase> have <lowcase>anything</lowcase> else.";
+	    var objText = new String(text);
+	    objText = doMixCase(objText);
+	    objText = doUpcase(objText);
+	    objText = doLowCase(objText);
+		document.write(objText);
+	</script>
+</html>

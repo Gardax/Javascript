@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Points</title>
+    </head>
+    <body>
+
+    </body>
+    <script>
+        function getPoint(x, y) {
+            return { x: x, y: y };
+        }
+
+
+        function getLine(point1, point2) {
+            return { pointA: point1, pointB: point2 };
+        }
+
+        function calculateDistance(point1, point2) {
+            return parseInt(point1.x - point2.x) * Math.abs(point1.x - point2.x)
+            + Math.abs(point1.y - point2.y) * Math.abs(point1.y - point2.y);
+        }
+
+        function IsPossibleFormingATriangle(line1, line2, line3) {
+            var a = calculateDistance(line1.pointA, line1.pointB);
+            var b = calculateDistance(line2.pointA, line2.pointB);
+            var c = calculateDistance(line3.pointA, line3.pointB);
+            if (a + b > c && a + c > b && b + c > a) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        var firstPoint = getPoint(1, 2);
+        var secondPoint = getPoint(2, 2);
+        var thirdPoint = getPoint(3, 1);
+
+        var line1 = getLine(firstPoint, secondPoint);
+        var line2 = getLine(secondPoint, thirdPoint);
+        var line3 = getLine(firstPoint, thirdPoint);
+
+        var distance = calculateDistance(firstPoint, secondPoint);
+        document.write("The distance between points is: "+distance);
+        document.write("<br/>");
+        document.write("Is it possible to form trinagle: "+IsPossibleFormingATriangle(line1, line2, line3));
+    </script>
+</html>

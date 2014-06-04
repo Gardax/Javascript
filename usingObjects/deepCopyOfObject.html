@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Deep Copy Of Object</title>
+</head>
+<body>
+
+</body>
+    <script>
+        function clone(obj) {
+            if (obj instanceof Array) {
+                var copy = [];
+                for (var i = 0 ; i < obj.length ; i++) {
+                    copy[i] = clone(obj[i]);
+                }
+                return copy;
+            }
+
+            if (obj instanceof Object) {
+                var copy = {};
+                for (var attr in obj) {
+                    if (obj.hasOwnProperty(attr)) {
+                        copy[attr] = clone(obj[attr]);
+                    }
+                }
+                return copy;
+            }
+            return obj;
+        }
+
+        var a = {
+            1: 5,
+            2: 6,
+            3: "f",
+        }
+        var cloned = clone(a);
+        for (var i in cloned) {
+            document.write(cloned[i]);
+            document.write("<br>");
+        }
+    </script>
+</html>
